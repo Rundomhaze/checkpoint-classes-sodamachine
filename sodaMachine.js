@@ -5,13 +5,24 @@ class SodaMachine {
   }
 
   currentInventoryCount() {
+    return this.sodas.length;
   }
 
   findSoda(sodaBrand) {
+    return this.sodas.find((el) => el.brand === sodaBrand)
   }
 
   sell(sodaBrand) {
+    for (let el of this.sodas) {
+      if (el.brand === sodaBrand) {
+        this.cash += el.price;
+        this.sodas = this.sodas.filter((el) => el.brand !== sodaBrand);
+        return this.cash
+      }
+    }
   }
+
 }
+
 
 module.exports = { SodaMachine };
