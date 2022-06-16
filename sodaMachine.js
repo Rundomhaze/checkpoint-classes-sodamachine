@@ -13,13 +13,20 @@ class SodaMachine {
   }
 
   sell(sodaBrand) {
-    for (let el of this.sodas) {
-      if (el.brand === sodaBrand) {
+    // for (let el of this.sodas) {
+    //   if (el.brand === sodaBrand) {
+    //     this.cash += el.price;
+    //     this.sodas = this.sodas.filter((el) => el.brand !== sodaBrand);
+    //     return this.cash
+    //   }
+    // }
+    this.sodas.map((el) => {
+      if(el.brand === sodaBrand) {
         this.cash += el.price;
-        this.sodas = this.sodas.filter((el) => el.brand !== sodaBrand);
+        this.sodas = this.sodas.filter((el) => el.brand !== sodaBrand)
         return this.cash
       }
-    }
+    })  
   }
 
 }
